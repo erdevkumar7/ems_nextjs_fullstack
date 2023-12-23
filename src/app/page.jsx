@@ -1,18 +1,21 @@
-"use client"
-import LearnDataFetch from "@/components/LearnDataFetch";
-import ChildDataPass from "@/components/childDataPass";
-import { useEffect, useState } from "react";
+'use client'
 
+import { Box, Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 export default function Home() {
-  const [user, setUser ] = useState({name:"devendra",age:30})
-
+  const router = useRouter();
   return (
     <>
-      <h1>hello nextjs</h1>
-      <hr />
-      {/* <LearnDataFetch /> */}
-      <h2>{user.name}</h2>
-      <ChildDataPass data={user} setUser={setUser}/>
+    <Box sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+          }}>
+      <h1>Home page </h1>
+      <Button variant="contained" onClick={()=> router.push('/product')}>Go To product</Button>
+    </Box>
     </>
-  )
+  );
 }
